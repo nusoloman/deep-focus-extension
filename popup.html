@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 300px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .shortcut-display {
+      background: #16213e;
+      border: 1px solid #0f3460;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .shortcut-keys {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e94560;
+      letter-spacing: 1px;
+    }
+
+    .record-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #0f3460;
+      color: #e0e0e0;
+    }
+
+    .record-btn:hover {
+      background: #1a4a8a;
+    }
+
+    .record-btn.recording {
+      background: #e94560;
+      color: #fff;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .hint {
+      font-size: 10px;
+      color: #666;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .reset-btn {
+      background: none;
+      border: 1px solid #333;
+      color: #888;
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .reset-btn:hover {
+      border-color: #e94560;
+      color: #e94560;
+    }
+  </style>
+</head>
+<body>
+  <h1>Deep Focus</h1>
+  <p class="subtitle">Content Censor</p>
+
+  <p class="section-label">Toggle Shortcut</p>
+  <div class="shortcut-display">
+    <span class="shortcut-keys" id="shortcutDisplay">Shift + S</span>
+  </div>
+
+  <button class="record-btn" id="recordBtn">Change Shortcut</button>
+  <button class="reset-btn" id="resetBtn">Reset to Default (Shift + S)</button>
+
+  <p class="hint" id="hint"></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

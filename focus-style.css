@@ -1,0 +1,174 @@
+/*
+ * DEEP FOCUS - CONTENT CENSOR EXTENSION
+ * Applies persistent censorship effects to thumbnails, titles, and avatars.
+ * Hover does NOT remove censorship. Toggle off with your custom shortcut (default: Shift+S).
+ */
+
+/* =========================================
+   1. THUMBNAILS & VIDEO PREVIEWS
+   ========================================= */
+
+/* Applies blur to all thumbnail images, main containers, and live/inline player videos */
+body:not(.sansur-disabled) ytd-thumbnail img,
+body:not(.sansur-disabled) .yt-core-image,
+body:not(.sansur-disabled) .ytThumbnailViewModelImage img,
+body:not(.sansur-disabled) ytd-playlist-thumbnail img,
+body:not(.sansur-disabled) ytd-rich-section-renderer img,
+body:not(.sansur-disabled) .shortsLockupViewModelHostThumbnailParentContainer img,
+body:not(.sansur-disabled) .ytLockupViewModelContentImage,
+body:not(.sansur-disabled) .ytThumbnailViewModelImage {
+    filter: blur(40px) grayscale(100%) !important;
+    opacity: 1 !important; 
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+}
+
+/* BLOCK INLINE VIDEO PLAYER AND LIVE STREAM HOVER PREVIEWS */
+body:not(.sansur-disabled) ytd-moving-thumbnail-renderer,
+body:not(.sansur-disabled) ytd-video-preview,
+body:not(.sansur-disabled) #mouseover-overlay,
+body:not(.sansur-disabled) #hover-overlays,
+body:not(.sansur-disabled) ytd-inline-preview-player,
+body:not(.sansur-disabled) #inline-preview-player,
+body:not(.sansur-disabled) .ytd-inline-preview-player {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* =========================================
+   2. VIDEO TITLES & SHORTS TEXT
+   ========================================= */
+
+/* Hide title text (black bar effect + blur) */
+body:not(.sansur-disabled) #video-title,
+body:not(.sansur-disabled) .title.ytd-video-renderer,
+body:not(.sansur-disabled) .ytLockupMetadataViewModelTitle,
+body:not(.sansur-disabled) .ytLockupMetadataViewModelTitle span,
+body:not(.sansur-disabled) #video-title-link,
+body:not(.sansur-disabled) .shortsLockupViewModelHostMetadataTitle,
+body:not(.sansur-disabled) .shortsLockupViewModelHostMetadataTitle span,
+body:not(.sansur-disabled) .shortsLockupViewModelHostOutsideMetadataTitle,
+body:not(.sansur-disabled) .shortsLockupViewModelHostOutsideMetadataTitle span {
+    filter: blur(10px) !important;
+    background-color: rgba(50, 50, 50, 0.8) !important;
+    color: transparent !important;
+    border-radius: 4px !important;
+    transition: filter 0.2s ease-in-out, color 0.2s, background-color 0.2s !important;
+}
+
+/* =========================================
+   3. CHANNEL NAMES, DETAILS & AVATARS
+   ========================================= */
+
+/* Channel names, view counts, and shorts subtitles */
+body:not(.sansur-disabled) #metadata-line,
+body:not(.sansur-disabled) ytd-channel-name,
+body:not(.sansur-disabled) .ytLockupMetadataViewModelMetadata,
+body:not(.sansur-disabled) .shortsLockupViewModelHostMetadataSubhead,
+body:not(.sansur-disabled) .shortsLockupViewModelHostOutsideMetadataSubhead {
+    filter: blur(5px) !important;
+    opacity: 0.2 !important;
+    transition: filter 0.3s, opacity 0.3s !important;
+}
+
+/* Channel profile pictures (Avatars) */
+body:not(.sansur-disabled) #avatar img,
+body:not(.sansur-disabled) #channel-thumbnail img,
+body:not(.sansur-disabled) .ytLockupMetadataViewModelAvatar img,
+body:not(.sansur-disabled) .ytSpecAvatarShapeImage {
+    filter: blur(15px) grayscale(100%) !important;
+    opacity: 0.8 !important;
+    transition: filter 0.3s ease-in-out, opacity 0.3s !important;
+}
+
+/* =========================================
+   4. INSTAGRAM CENSORSHIP (PERSISTENT)
+   ========================================= */
+
+/* Photos, Videos & Story Images (Feed, Profile, Story Viewer) */
+body:not(.sansur-disabled) article img,
+body:not(.sansur-disabled) article video,
+body:not(.sansur-disabled) article canvas,
+body:not(.sansur-disabled) section img,
+body:not(.sansur-disabled) section video,
+body:not(.sansur-disabled) img.x5yr21d,
+body:not(.sansur-disabled) video.x5yr21d,
+body:not(.sansur-disabled) ._aagv,
+body:not(.sansur-disabled) ._aagu,
+body:not(.sansur-disabled) div[role="presentation"] img,
+body:not(.sansur-disabled) canvas._aac7,
+body:not(.sansur-disabled) ul[role="menu"] img,
+body:not(.sansur-disabled) div[role="dialog"] img,
+body:not(.sansur-disabled) div[role="dialog"] video,
+body:not(.sansur-disabled) main video,
+body:not(.sansur-disabled) div[role="presentation"] video,
+body:not(.sansur-disabled) a[href*="/reels/"] img,
+body:not(.sansur-disabled) main a[href^="/p/"] img,
+body:not(.sansur-disabled) main a[href^="/p/"] video,
+body:not(.sansur-disabled) main article img,
+body:not(.sansur-disabled) div[role="navigation"] img,
+body:not(.sansur-disabled) div[role="button"] img {
+    filter: blur(40px) grayscale(100%) !important;
+    opacity: 1 !important;
+}
+
+/* Comments, Usernames, Descriptions & Menus (Sidebar, Notifications, Stories) */
+body:not(.sansur-disabled) a[href^="/"] span.notranslate,
+body:not(.sansur-disabled) a[href^="/"] div.notranslate,
+body:not(.sansur-disabled) article header a,
+body:not(.sansur-disabled) article ul li,
+body:not(.sansur-disabled) div[role="button"] span,
+body:not(.sansur-disabled) section article span,
+body:not(.sansur-disabled) div[role="navigation"] span,
+body:not(.sansur-disabled) div[role="navigation"] svg,
+body:not(.sansur-disabled) div[role="button"] a,
+body:not(.sansur-disabled) div[role="dialog"] header a,
+body:not(.sansur-disabled) div[role="dialog"] span,
+body:not(.sansur-disabled) div[role="menu"] span,
+body:not(.sansur-disabled) span[dir="auto"],
+body:not(.sansur-disabled) div[dir="auto"],
+body:not(.sansur-disabled) span[dir="ltr"],
+body:not(.sansur-disabled) header span,
+body:not(.sansur-disabled) header time,
+body:not(.sansur-disabled) time,
+body:not(.sansur-disabled) div[style*="transform"] span {
+    filter: blur(10px) !important;
+    background-color: rgba(50, 50, 50, 0.8) !important;
+    color: transparent !important;
+    border-radius: 4px !important;
+}
+
+/* =========================================
+   5. TWITTER (X) CENSORSHIP (PERSISTENT)
+   ========================================= */
+
+/* Images, Videos, Media & Profile Pictures */
+body:not(.sansur-disabled) [data-testid="tweetPhoto"],
+body:not(.sansur-disabled) [data-testid="videoPlayer"],
+body:not(.sansur-disabled) [data-testid="videoComponent"],
+body:not(.sansur-disabled) [data-testid="card.wrapper"],
+body:not(.sansur-disabled) [data-testid="Tweet-User-Avatar"],
+body:not(.sansur-disabled) article[role="article"] img,
+body:not(.sansur-disabled) img[src*="profile_images"] {
+    filter: blur(40px) grayscale(100%) !important;
+    opacity: 1 !important;
+}
+
+/* All Text: Tweets, Names, Feed, Trends, Sidebar & Notifications */
+body:not(.sansur-disabled) [data-testid="tweetText"],
+body:not(.sansur-disabled) [data-testid="User-Name"],
+body:not(.sansur-disabled) nav[role="navigation"] span,
+body:not(.sansur-disabled) [data-testid="SideNav_AccountSwitcher_Button"] span,
+body:not(.sansur-disabled) [role="group"] span,
+body:not(.sansur-disabled) [role="group"] div[dir="ltr"],
+body:not(.sansur-disabled) [data-testid="trend"],
+body:not(.sansur-disabled) [data-testid="UserCell"],
+body:not(.sansur-disabled) [role="complementary"] h2,
+body:not(.sansur-disabled) article[role="article"] span[dir="auto"],
+body:not(.sansur-disabled) article[role="article"] div[dir="auto"] {
+    filter: blur(10px) !important;
+    background-color: rgba(50, 50, 50, 0.8) !important;
+    color: transparent !important;
+    border-radius: 4px !important;
+}
