@@ -6,6 +6,19 @@ Deep Focus is a lightweight Chrome extension that censors visual and textual dis
 
 ---
 
+## Screenshots
+
+### YouTube
+![Deep Focus on YouTube — thumbnails, titles and channel info are blurred](assets/youtube.png)
+
+### Instagram
+![Deep Focus on Instagram — feed images, stories and usernames are censored](assets/instagram.png)
+
+### Twitter / X
+![Deep Focus on Twitter (X) — tweets, images and trending topics are blurred](assets/x.png)
+
+---
+
 ## Why Deep Focus?
 
 Social media feeds are designed to hijack your attention. Deep Focus fights back by applying a **persistent blur and grayscale filter** over distracting content. Unlike simple site blockers, Deep Focus lets you stay on the platform for intentional use (searching, posting, managing) while removing the endless scroll temptation.
